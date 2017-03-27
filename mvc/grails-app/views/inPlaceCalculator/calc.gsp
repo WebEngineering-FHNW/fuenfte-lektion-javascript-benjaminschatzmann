@@ -4,13 +4,27 @@
     <title>
       In-Place Calculator
     </title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            var enElement = document.getElementById('en');
+
+            function validateEn() {
+                if(enElement != null && enElement.value < 1.0)
+                {
+                    alert('en value needs to be at least 1.0');
+                    enElement.classList.add('error');
+                }
+            }
+
+            enElement.onchange = validateEn;
+        });
+    </script>
   </head>
   <body>
-
   <form action="/inPlaceCalculator/calc" method="get">
     <fieldset class="form padded">
 
-      <tmpl:form_row name="en"   label="En"   model="${calculatorInstance}" onchange="javascript:var element = document.getElementById('en'); if(element != null && element.value < 1.0){alert('en value needs to be at least 1.0'); element.classList.add('error');}" />
+      <tmpl:form_row name="en"   label="En"   model="${calculatorInstance}" onchange="" />
 
       <tmpl:form_row name="exam" label="Exam" model="${calculatorInstance}" />
 
