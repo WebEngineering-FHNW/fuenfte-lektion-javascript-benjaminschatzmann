@@ -16,3 +16,8 @@ function handledError(check, inputField, msg) {
   }
   return check;
 }
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    var enElement = document.getElementById('en');
+    enElement.onchange = function(){ validate(enElement); };
+});
